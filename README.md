@@ -44,8 +44,8 @@ To use ft_printf in your own project, follow these steps:
 Here is an example of how to use the myprintf function in a program:
 
         #include "ft_printf.h"
-    
-    int main(int argc, char *argv[]) {
+            
+        int main(int argc, char *argv[]) {
         // Print a string
         ft_printf("Hello, world!\n");
 
