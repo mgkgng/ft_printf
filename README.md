@@ -38,13 +38,13 @@ To use ft_printf in your own project, follow these steps:
 
 2. In your own project, include the ft_printf.h header file and link to the libftprintf.a library file. For example:
     
-    gcc myprogram.c -Lpath/to/printf/project -o myprogram
+            gcc myprogram.c -Lpath/to/printf/project -o myprogram
 
 3. Call the ft_printf function in your code as you would the standard printf function. Consult the documentation or the source code for a complete list of the available conversion specifiers and flags.
 Here is an example of how to use the myprintf function in a program:
 
-    #include "ft_printf.h"
-
+        #include "ft_printf.h"
+    
     int main(int argc, char *argv[]) {
         // Print a string
         ft_printf("Hello, world!\n");
