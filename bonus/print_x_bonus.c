@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:44:50 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 16:33:30 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:35:05 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	print_x(unsigned int n, t_spec spec, int upper)
 {
 	int	*ins;
 
-	if (!(spec.flag % 2))
+	if (!(spec.flag % MINUS_FLAG))
 	{
-		if (!(spec.flag % 5) && n && spec.precis)
+		if (!(spec.flag % SHARP_FLAG) && n && spec.precis)
 			ins = get_instruction(3, 3, 1, 2);
 		else
 			ins = get_instruction(2, 1, 2);

@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:15:53 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 18:04:52 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:34:01 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ int	get_flag(const char *s, int *i)
 	set = ft_strdup("0- #+");
 	while (s[*i] && ft_strchr(set, s[*i]))
 	{
-		if (s[*i] == '-' && res % 2)
-			res *= 2;
-		else if (s[*i] == '0' && res % 3)
-			res *= 3;
-		else if (s[*i] == '#' && res % 5)
-			res *= 5;
-		else if (s[*i] == '+' && res % 7)
-			res *= 7;
-		else if (s[*i] == ' ' && res % 11)
-			res *= 11;
+		if (s[*i] == '-' && res % MINUS_FLAG)
+			res *= MINUS_FLAG;
+		else if (s[*i] == '0' && res % ZERO_FLAG)
+			res *= ZERO_FLAG;
+		else if (s[*i] == '#' && res % SHARP_FLAG)
+			res *= SHARP_FLAG;
+		else if (s[*i] == '+' && res % PLUS_FLAG)
+			res *= PLUS_FLAG;
+		else if (s[*i] == ' ' && res % SPACE_FLAG)
+			res *= SPACE_FLAG;
 		(*i)++;
 	}
 	free(set);
@@ -53,7 +53,7 @@ int	get_width(const char *s, int *i, int *flag)
 	if (res < 0)
 	{
 		res *= -1;
-		*flag *= 2;
+		*flag *= MINUS_FLAG;
 	}
 	*i += ft_nbrlen(res, 10);
 	skip_space(s, i);

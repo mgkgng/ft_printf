@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:42:43 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 16:33:25 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:36:56 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	plus_space(int flag)
 {
 	char	c;
 
-	if (!(flag % 7))
+	if (!(flag % PLUS_FLAG))
 		c = '+';
 	else
 		c = ' ';
@@ -49,9 +49,9 @@ int	print_d(int n, t_spec spec)
 {
 	int				*ins;
 
-	if (!(spec.flag % 2))
+	if (!(spec.flag % MINUS_FLAG))
 	{
-		if (n >= 0 && !(spec.flag % 7 && spec.flag % 11))
+		if (n >= 0 && !(spec.flag % PLUS_FLAG && spec.flag % SPACE_FLAG))
 			ins = get_instruction(3, 3, 1, 2);
 		else
 			ins = get_instruction(2, 1, 2);

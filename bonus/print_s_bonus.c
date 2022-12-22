@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:45:57 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 16:33:27 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:28:13 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	print_s(char *s, t_spec spec)
 	null_str = ft_strdup("(null)");
 	if (!s)
 		s = null_str;
-	if (!(spec.flag % 2))
+	if (!(spec.flag % MINUS_FLAG))
 		ins = get_instruction(2, 1, 2);
 	else
 		ins = get_instruction(2, 2, 1);

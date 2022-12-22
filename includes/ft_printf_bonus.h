@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:50:36 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 16:33:33 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:26:34 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 # include <unistd.h>
 # include "libft.h"
 
-/* flag corresponding to a prime number
-- : 2
-0 : 3
-# : 5
-+ : 7
-  : 11
-*/
+# define MINUS_FLAG 2
+# define ZERO_FLAG 3
+# define SHARP_FLAG 5
+# define PLUS_FLAG 7
+# define SPACE_FLAG 11
 
 typedef struct s_spec
 {

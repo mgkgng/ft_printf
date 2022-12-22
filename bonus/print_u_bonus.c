@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 14:29:38 by min-kang          #+#    #+#             */
-/*   Updated: 2022/03/17 16:33:28 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 17:27:11 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	print_u(unsigned int n, t_spec spec)
 {
 	int	*ins;
 
-	if (!(spec.flag % 2))
+	if (!(spec.flag % MINUS_FLAG))
 		ins = get_instruction(2, 1, 2);
 	else
 		ins = get_instruction(2, 2, 1);
