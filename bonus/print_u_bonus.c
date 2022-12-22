@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 14:29:38 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:27:11 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:56:38 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,13 @@ int	instruction_u(unsigned int n, t_spec spec, int *ins)
 		else
 			len += width_unsigned(spec, nbr_len);
 	}
-	free(ins);
 	return (len);
 }
 
 int	print_u(unsigned int n, t_spec spec)
 {
-	int	*ins;
-
 	if (!(spec.flag % MINUS_FLAG))
-		ins = get_instruction(2, 1, 2);
-	else
-		ins = get_instruction(2, 2, 1);
-	return (instruction_u(n, spec, ins));
+		return (instruction_u(n, spec, (int [3]) {2, 1, 2}));
+	return (instruction_u(n, spec, (int [3]) {2, 2, 1}));
+
 }

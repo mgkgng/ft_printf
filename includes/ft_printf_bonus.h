@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:50:36 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:26:34 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:42:47 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	hashtag(int upper);
 int	get_flag(const char *s, int *i);
 int	get_width(const char *s, int *i, int *flag);
 int	get_precis(const char *s, int *i);
-int	*get_instruction(int n, ...);
 
 /* width */
 int	width_nbr(t_spec spec, long long int *n, int nbr_len);

@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:44:50 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:35:05 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:57:13 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ int	ft_pow(int nb, int pow)
 int	ft_printhex(unsigned int n, int precis, int upper)
 {
 	int				i;
-	char			*set;
+	char			set[17];
 	int				len;	
 
 	if (!n && !precis)
 		return (0);
 	if (!upper)
-		set = ft_strdup("0123456789abcdef");
+		ft_strlcpy(set, "0123456789abcdef", 17);
 	else
-		set = ft_strdup("0123456789ABCDEF");
+		ft_strlcpy(set, "0123456789ABCDEF", 17);
 	len = ft_nbrlen(n, 16);
 	i = len;
 	while (len < precis)
@@ -45,7 +45,6 @@ int	ft_printhex(unsigned int n, int precis, int upper)
 		n %= ft_pow(16, i - 1);
 		i--;
 	}
-	free(set);
 	return (len);
 }
 
@@ -76,22 +75,15 @@ int	instruction_x(unsigned int n, t_spec spec, int upper, int *ins)
 		else if (ins[i] == 3)
 			len += hashtag(upper);
 	}
-	free(ins);
 	return (len);
 }
 
 int	print_x(unsigned int n, t_spec spec, int upper)
 {
-	int	*ins;
+	if ((spec.flag % MINUS_FLAG))
+		return (instruction_x(n, spec, upper, (int [3]) {2, 2, 1}));
+	if (!(spec.flag % SHARP_FLAG) && n && spec.precis)
+		return (instruction_x(n, spec, upper, (int [4]) {3, 3, 1, 2}));
+	return (instruction_x(n, spec, upper, (int [3]) {2, 1, 2}));
 
-	if (!(spec.flag % MINUS_FLAG))
-	{
-		if (!(spec.flag % SHARP_FLAG) && n && spec.precis)
-			ins = get_instruction(3, 3, 1, 2);
-		else
-			ins = get_instruction(2, 1, 2);
-	}
-	else
-		ins = get_instruction(2, 2, 1);
-	return (instruction_x(n, spec, upper, ins));
 }

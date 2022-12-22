@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:42:43 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:36:56 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:56:25 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,14 @@ int	instruction_d(long long int n, t_spec spec, int *ins)
 		else if (ins[i] == 3)
 			len += plus_space(spec.flag);
 	}
-	free(ins);
 	return (len);
 }
 
 int	print_d(int n, t_spec spec)
 {
-	int				*ins;
-
-	if (!(spec.flag % MINUS_FLAG))
-	{
-		if (n >= 0 && !(spec.flag % PLUS_FLAG && spec.flag % SPACE_FLAG))
-			ins = get_instruction(3, 3, 1, 2);
-		else
-			ins = get_instruction(2, 1, 2);
-	}
-	else
-		ins = get_instruction(2, 2, 1);
-	return (instruction_d(n, spec, ins));
+	if (spec.flag % MINUS_FLAG)
+		return (instruction_d(n, spec, (int [3]) {2, 2, 1}));
+	if (n >= 0 && !(spec.flag % PLUS_FLAG && spec.flag % SPACE_FLAG))
+		return (instruction_d(n, spec, (int [4]) {3, 3, 1, 2}));
+	return (instruction_d(n, spec, (int [3]) {2, 1, 2}));
 }

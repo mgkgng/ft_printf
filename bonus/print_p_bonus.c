@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:41:48 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:29:21 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:56:31 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ int	ft_ptrlen(unsigned long long n, int precis)
 
 int	ft_printptr(unsigned long long n, t_spec spec, int on)
 {
-	char	*set;
+	char	set[17];
 
-	set = ft_strdup("0123456789abcdef");
+	ft_strlcpy(set, "0123456789abcdef", 17);
 	if (on)
 		ft_putstr("0x");
 	if (n > 15)
 		ft_printptr(n / 16, spec, 0);
 	ft_putchar(set[n % 16]);
-	free(set);
 	return (ft_ptrlen(n, spec.precis));
 }
 
@@ -55,17 +54,12 @@ int	instruction_p(unsigned long long n, t_spec spec, int *ins)
 		if (ins[i] == 2)
 			len += print_width(spec.width, ft_ptrlen(n, spec.precis), ' ');
 	}
-	free(ins);
 	return (len);
 }
 
 int	print_p(unsigned long long n, t_spec spec)
 {
-	int	*ins;
-
 	if (!(spec.flag % MINUS_FLAG))
-		ins = get_instruction(2, 1, 2);
-	else
-		ins = get_instruction(2, 2, 1);
-	return (instruction_p(n, spec, ins));
+		return (instruction_p(n, spec, (int [3]) {2, 1, 2}));
+	return (instruction_p(n, spec, (int [3]) {2, 2, 1}));
 }

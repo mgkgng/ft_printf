@@ -6,7 +6,7 @@
 /*   By: min-kang <minguk.gaang@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 17:40:46 by min-kang          #+#    #+#             */
-/*   Updated: 2022/12/22 17:28:28 by min-kang         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:56:19 by min-kang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,12 @@ int	instruction_c(int c, t_spec spec, int *ins)
 		else if (ins[i] == 2)
 			len += print_width(spec.width, 1, ' ');
 	}
-	free(ins);
 	return (len);
 }
 
 int	print_c(int c, t_spec spec)
 {
-	int	*ins;
-
 	if (!(spec.flag % MINUS_FLAG))
-		ins = get_instruction(2, 1, 2);
-	else
-		ins = get_instruction(2, 2, 1);
-	return (instruction_c(c, spec, ins));
+		return (instruction_c(c, spec, (int [3]) {2, 1, 2}));
+	return (instruction_c(c, spec, (int [3]) {2, 2, 1}));
 }
