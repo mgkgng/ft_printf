@@ -43,9 +43,9 @@ To use ft_printf in your own project, follow these steps:
 3. Call the ft_printf function in your code as you would the standard printf function. Consult the documentation or the source code for a complete list of the available conversion specifiers and flags.
 Here is an example of how to use the myprintf function in a program:
 
-        #include "ft_printf.h"
-            
-        int main(int argc, char *argv[]) {
+    #include "ft_printf.h"
+
+    int main(int argc, char *argv[]) {
         // Print a string
         ft_printf("Hello, world!\n");
 
@@ -54,7 +54,7 @@ Here is an example of how to use the myprintf function in a program:
 
         // Print a string with a minimum field width and left-justified
         ft_printf("%-10s\n", "ft_printf");
-        
+
         return 0;
     }
 
